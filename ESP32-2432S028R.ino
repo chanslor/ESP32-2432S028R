@@ -364,14 +364,18 @@ void drawRiverCard(int riverIndex, int y) {
     strcpy(lvlStr, " ---'");
   }
 
+  // Format flow with cfs as a complete unit (support up to 4 digits)
+  char flowStr[15];
+  sprintf(flowStr, "%5d cfs", river.flow.toInt());  // Right-aligned flow with cfs (5 chars for number)
+
   // Format entire line with fixed widths
-  // - river name: left-justified in 11 chars
-  // - level: right-justified in 5 chars (includes the ')
-  // - flow: right-justified in 3 chars, then " cfs"
-  sprintf(line1, "%-11s %5s %3d cfs",
-          displayName.c_str(),   // River name (11 chars, left-aligned)
+  // - river name: left-justified in 15 chars
+  // - level: 5 chars (includes the ')
+  // - flow: 9 chars total (right-aligned number + " cfs")
+  sprintf(line1, "%-15s %5s  %s",
+          displayName.c_str(),   // River name (15 chars, left-aligned)
           lvlStr,                // Level (5 chars total including ')
-          river.flow.toInt());   // Flow (3 digits)
+          flowStr);              // Flow (9 chars: "    X cfs" or "   XX cfs" or "  XXX cfs" or " XXXX cfs")
 
   tft.print(line1);
 
