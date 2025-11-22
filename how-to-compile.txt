@@ -1,0 +1,13 @@
+Option 3: Use Local Build Directory
+
+  To keep everything in your project directory instead of the cache:
+
+  arduino-cli compile --build-path ./build --fqbn esp32:esp32:esp32 .
+  arduino-cli upload -p /dev/ttyUSB0 --fqbn esp32:esp32:esp32 --input-dir ./build .
+
+  The issue: You were trying to upload without compiling first, so there was no compiled .bin file for Arduino CLI to find.
+
+  Would you like me to help you run the compile+upload command? First, let me check which port your ESP32 is on:
+
+  arduino-cli board list
+
