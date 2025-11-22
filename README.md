@@ -2,7 +2,7 @@
 
 ![River Levels Display](mock01.jpg)
 
-A whitewater kayaking river monitoring system that displays USGS river gauge data on an ESP32-2432S028R development board (also known as "Cheap Yellow Display" or CYD). Designed for paddlers to quickly check river conditions at a glance.
+A whitewater kayaking river monitoring system that displays USGS river gauge data on an ESP32-2432S028R development board (also known as "Cheap Yellow Display" or CYD). Designed for paddlers to quickly check river conditions at a glance while not on the river.
 
 ## Hardware
 
